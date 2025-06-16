@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { NavLink, useLocation, Link } from 'react-router-dom';
-import { FiUser, FiChevronDown, FiMenu, FiX } from 'react-icons/fi';
+import {  FiChevronDown, FiMenu, FiX } from 'react-icons/fi';
 import { mockStudent } from '../data/mockData';
 
 
 const Navbar = () => {
+
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -21,7 +22,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-white shadow-sm border-b sticky top-0 z-1">
+    <nav className="bg-white shadow-sm border-b sticky top-0 z-[1000]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
 
@@ -39,8 +40,8 @@ const Navbar = () => {
                   key={link.path}
                   to={link.path}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive(link.path)
-                      ? 'text-white bg-primary bg-opacity-10'
-                      : 'text-gray-700 hover:text-primary'
+                    ? 'text-white bg-primary bg-opacity-10'
+                    : 'text-gray-700 hover:text-primary'
                     }`}
                 >
                   {link.name}
@@ -110,8 +111,8 @@ const Navbar = () => {
                 key={link.path}
                 to={link.path}
                 className={`block px-3 py-2 text-sm font-medium transition-colors ${isActive(link.path)
-                    ? 'text-primary bg-primary bg-opacity-10'
-                    : 'text-gray-700 hover:text-primary'
+                  ? 'text-white bg-primary bg-opacity-10'
+                  : 'text-gray-700 hover:text-primary'
                   }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >

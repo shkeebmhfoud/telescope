@@ -16,9 +16,9 @@ const About = () => {
           <div className="bg-primary bg-opacity-5 p-6 rounded-lg mb-8">
             <div className="flex items-center space-x-3 space-x-reverse mb-4">
               <FiTarget className="w-8 h-8 text-white" />
-              <h2 className="text-2xl font-bold text-gray-800">رؤيتنا</h2>
+              <h2 className="text-2xl font-bold text-white">رؤيتنا</h2>
             </div>
-            <p className="text-gray-600 leading-relaxed text-[1.5rem]">
+            <p className="text-white leading-relaxed text-[1.5rem]">
               نسعى لأن نكون الجسر الذي يربط بين الطلاب الطموحين والمعلمين المؤهلين، لنساهم في بناء
               جيل متعلم ومتميز يواكب التطورات التعليمية الحديثة ويحقق أحلامه الأكاديمية.
             </p>
@@ -28,9 +28,9 @@ const About = () => {
           <div className="bg-secondary bg-opacity-5 p-6 rounded-lg mb-8">
             <div className="flex items-center space-x-3 space-x-reverse mb-4">
               <FiHeart className="w-8 h-8 text-white" />
-              <h2 className="text-2xl font-bold text-gray-800">مهمتنا</h2>
+              <h2 className="text-2xl font-bold text-white">مهمتنا</h2>
             </div>
-            <p className="text-gray-600 leading-relaxed text-[1.5rem]">
+            <p className="text-white leading-relaxed text-[1.5rem]">
               توفير منصة سهلة وآمنة تمكن الطلاب وأولياء أمورهم من العثور على أفضل المعلمين المؤهلين،
               وتنظيم جداول الدروس بسهولة، ومتابعة التقدم الأكاديمي في بيئة تعليمية محفزة ومناسبة.
             </p>
@@ -74,9 +74,9 @@ const About = () => {
           <div className="bg-accent bg-opacity-5 p-6 rounded-lg mb-8">
             <div className="flex items-center space-x-3 space-x-reverse mb-4">
               <FiAward className="w-8 h-8 text-white" />
-              <h2 className="text-2xl font-bold text-gray-800">التزامنا</h2>
+              <h2 className="text-2xl font-bold text-white">التزامنا</h2>
             </div>
-            <p className="text-gray-600 leading-relaxed text-[1.5rem]">
+            <p className="text-white leading-relaxed text-[1.5rem]">
               نلتزم بتوفير تجربة تعليمية متميزة تضع الطالب في المقدمة، مع الحرص على جودة التعليم
               وسلامة البيئة التعليمية. نؤمن بأن التعليم حق لكل طفل، ونعمل جاهدين لجعل الدروس
               الخصوصية متاحة وفعالة لجميع الطلاب في محافظة حمص.
@@ -87,15 +87,15 @@ const About = () => {
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             <div className="text-center p-6 bg-primary bg-opacity-5 rounded-lg">
               <div className="text-3xl font-bold text-white mb-2">50+</div>
-              <div className="text-gray-600">معلم مؤهل</div>
+              <div className="text-white">معلم مؤهل</div>
             </div>
             <div className="text-center p-6 bg-secondary bg-opacity-5 rounded-lg">
               <div className="text-3xl font-bold text-white mb-2">1000+</div>
-              <div className="text-gray-600">طالب مسجل</div>
+              <div className="text-white">طالب مسجل</div>
             </div>
             <div className="text-center p-6 bg-accent bg-opacity-5 rounded-lg">
               <div className="text-3xl font-bold text-white mb-2">5000+</div>
-              <div className="text-gray-600">درس مكتمل</div>
+              <div className="text-white">درس مكتمل</div>
             </div>
           </div>
         </div>

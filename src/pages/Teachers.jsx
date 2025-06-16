@@ -19,7 +19,7 @@ const Teachers = () => {
     }
 
     if (gradeFilter) {
-      filtered = filtered.filter(teacher => 
+      filtered = filtered.filter(teacher =>
         teacher.grades.includes(parseInt(gradeFilter))
       );
     }
@@ -42,16 +42,23 @@ const Teachers = () => {
     applyFilters();
   }, [subjectFilter, gradeFilter]);
 
+  useEffect(() => {
+    if (localStorage.filter) {
+      setSubjectFilter(localStorage.filter);
+      localStorage.clear();
+    }
+  }, [])
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <h1 className="text-3xl font-bold mb-8 text-gray-800">المعلمون المتاحون</h1>
-      
+
       <div className="bg-white p-6 rounded-lg shadow-sm mb-8">
         <div className="flex items-center space-x-4 space-x-reverse mb-4">
           <FiFilter className="w-5 h-5 text-gray-600" />
           <h2 className="text-lg font-semibold text-gray-800">فلترة النتائج</h2>
         </div>
-        
+
         <div className="grid md:grid-cols-4 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -70,7 +77,7 @@ const Teachers = () => {
               ))}
             </select>
           </div>
-          
+
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               الصف
@@ -88,7 +95,7 @@ const Teachers = () => {
               ))}
             </select>
           </div>
-          
+
           <div className="flex items-end">
             <button
               onClick={clearFilters}
@@ -97,7 +104,7 @@ const Teachers = () => {
               إلغاء الفلاتر
             </button>
           </div>
-          
+
           <div className="flex items-end">
             <div className="w-full bg-primary text-white px-6 py-3 rounded-lg text-center">
               {filteredTeachers.length} معلم متاح
@@ -172,7 +179,7 @@ const Teachers = () => {
         </div>
 
       </div>
-     </div>
+    </div>
   );
 };
 

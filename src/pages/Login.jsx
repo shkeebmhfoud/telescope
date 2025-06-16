@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FiMail, FiLock, FiEye, FiEyeOff } from 'react-icons/fi';
 import { toast } from 'react-toastify';
+import login_image from '../data/login_image.png'
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -35,7 +36,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+      <div className="max-w-md w-full bg-white py-2 px-4 space-y-8">
         {/* Header */}
         <div className="text-center">
           <Link to="/" className="flex items-center justify-center space-x-2 space-x-reverse mb-6">
@@ -43,15 +44,6 @@ const Login = () => {
             <span className="text-3xl font-bold text-primary">تلسكوب</span>
           </Link>
           <h2 className="text-3xl font-bold text-gray-900">تسجيل الدخول</h2>
-          <p className="mt-2 text-sm text-gray-600">
-            ليس لديك حساب؟{' '}
-            <Link
-              to="/register"
-              className="font-medium text-primary hover:text-blue-700 transition-colors"
-            >
-              إنشاء حساب جديد
-            </Link>
-          </p>
         </div>
 
         {/* Form */}
@@ -136,11 +128,10 @@ const Login = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white transition-colors ${
-                isLoading
-                  ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-primary hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary'
-              }`}
+              className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white transition-colors ${isLoading
+                ? 'bg-gray-400 cursor-not-allowed'
+                : 'bg-primary hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary'
+                }`}
             >
               {isLoading ? (
                 <div className="flex items-center space-x-2 space-x-reverse">
@@ -154,30 +145,17 @@ const Login = () => {
           </div>
         </form>
 
-        {/* Demo Credentials */}
-        <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-          <h3 className="text-sm font-medium text-blue-800 mb-2">بيانات تجريبية:</h3>
-          <div className="text-sm text-blue-700 space-y-1">
-            <p>البريد الإلكتروني: demo@telescope.sy</p>
-            <p>كلمة المرور: password123</p>
-          </div>
-        </div>
-
         {/* Footer Links */}
         <div className="text-center space-y-2">
-          <Link
-            to="/about"
-            className="text-sm text-gray-600 hover:text-gray-800 transition-colors"
-          >
-            من نحن
-          </Link>
-          <span className="mx-2 text-gray-400">|</span>
-          <Link
-            to="/contact"
-            className="text-sm text-gray-600 hover:text-gray-800 transition-colors"
-          >
-            اتصل بنا
-          </Link>
+          <p className="mt-2 text-sm text-gray-600">
+            ليس لديك حساب؟{' '}
+            <Link
+              to="/register"
+              className="font-medium text-primary hover:text-blue-700 transition-colors"
+            >
+              إنشاء حساب جديد
+            </Link>
+          </p>
         </div>
       </div>
     </div>

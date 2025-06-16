@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { FiCalendar, FiClock, FiArrowRight, FiMapPin, FiPhone } from 'react-icons/fi';
-import { availableDays, mockBookings, mockTeachers, timeSlots, mockStudent } from '../data/mockData';
+import { FiCalendar, FiClock, FiMapPin, FiPhone } from 'react-icons/fi';
+import { MdCancel } from "react-icons/md";
+import { availableDays, mockBookings, mockTeachers, timeSlots } from '../data/mockData';
 import { toast } from 'react-toastify';
 
 const Booking = () => {
@@ -35,7 +36,7 @@ const Booking = () => {
     } else {
       setAvailableTimeSlot(timeSlots);
     }
-  }, [])
+  }, [teacherId])
 
   useEffect(() => {
     if (!localStorage.getItem('booking_id')) {
@@ -48,7 +49,7 @@ const Booking = () => {
     } else {
       setAvailableDays(availableDays);
     }
-  }, [])
+  }, [teacherId])
 
   const handleTimeSelect = (time) => {
     setSelectedTime(time);
@@ -66,8 +67,6 @@ const Booking = () => {
       toast.error('يرجى اختيار الوقت');
       return;
     }
-
-    console.log(selectedDate, selectedTime)
 
     const isHeCanBooking = mockBookings.filter(booking => booking.date === selectedDate && booking.time === selectedTime && parseInt(teacherId) !== parseInt(booking.teacherId));
     console.log(isHeCanBooking)
@@ -125,16 +124,11 @@ const Booking = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative">
+
+      <MdCancel className='text-3xl absolute left-0 cursor-pointer' onClick={()=>navigate('/teachers')}/>
+
       <div className="bg-white rounded-lg shadow-sm p-8">
-        {/* Breadcrumb */}
-        <nav className="mb-8">
-          <div className="flex items-center space-x-2 space-x-reverse text-sm text-gray-600">
-            <Link to="/teachers" className="hover:text-primary">المعلمين</Link>
-            <FiArrowRight className="w-4 h-4" />
-            <span className="text-gray-800">حجز درس</span>
-          </div>
-        </nav>
 
         <h1 className="text-3xl font-bold mb-8 text-gray-800">حجز درس خصوصي</h1>
 
@@ -155,12 +149,6 @@ const Booking = () => {
               <p className="text-gray-600 mb-4">
                 يدرس للصفوف: {teacher.grades.join(' - ')}
               </p>
-
-              <div className="flex items-center space-x-4 space-x-reverse mb-4">
-                <div className="flex items-center space-x-1 space-x-reverse">
-                  <span className="text-gray-500">({teacher.totalSessions} درس)</span>
-                </div>
-              </div>
 
               <div className="flex items-center space-x-4 space-x-reverse mb-4">
                 <span className="text-2xl font-bold text-secondary">

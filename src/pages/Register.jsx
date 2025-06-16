@@ -86,7 +86,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -108,7 +108,7 @@ const Register = () => {
     const birth = new Date(birthDate);
     const age = today.getFullYear() - birth.getFullYear();
     const monthDiff = today.getMonth() - birth.getMonth();
-    
+
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
       return age - 1;
     }
@@ -125,15 +125,6 @@ const Register = () => {
             <span className="text-3xl font-bold text-primary">تلسكوب</span>
           </Link>
           <h2 className="text-3xl font-bold text-gray-900">إنشاء حساب جديد</h2>
-          <p className="mt-2 text-sm text-gray-600">
-            لديك حساب بالفعل؟{' '}
-            <Link
-              to="/login"
-              className="font-medium text-primary hover:text-blue-700 transition-colors"
-            >
-              تسجيل الدخول
-            </Link>
-          </p>
         </div>
 
         {/* Form */}
@@ -350,11 +341,10 @@ const Register = () => {
                       name="confirmPassword"
                       value={formData.confirmPassword}
                       onChange={handleInputChange}
-                      className={`w-full pl-10 pr-10 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent ${
-                        formData.confirmPassword && formData.password !== formData.confirmPassword
+                      className={`w-full pl-10 pr-10 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent ${formData.confirmPassword && formData.password !== formData.confirmPassword
                           ? 'border-red-300 focus:ring-red-500'
                           : 'border-gray-300'
-                      }`}
+                        }`}
                       placeholder="أعد إدخال كلمة المرور"
                       required
                     />
@@ -407,11 +397,10 @@ const Register = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white transition-colors ${
-                  isLoading
+                className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white transition-colors ${isLoading
                     ? 'bg-gray-400 cursor-not-allowed'
                     : 'bg-primary hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary'
-                }`}
+                  }`}
               >
                 {isLoading ? (
                   <div className="flex items-center space-x-2 space-x-reverse">
@@ -428,19 +417,15 @@ const Register = () => {
 
         {/* Footer Links */}
         <div className="text-center space-y-2">
-          <Link
-            to="/about"
-            className="text-sm text-gray-600 hover:text-gray-800 transition-colors"
-          >
-            من نحن
-          </Link>
-          <span className="mx-2 text-gray-400">|</span>
-          <Link
-            to="/contact"
-            className="text-sm text-gray-600 hover:text-gray-800 transition-colors"
-          >
-            اتصل بنا
-          </Link>
+          <p className="mt-2 text-sm text-gray-600">
+            لديك حساب بالفعل؟{' '}
+            <Link
+              to="/login"
+              className="font-medium text-primary hover:text-blue-700 transition-colors"
+            >
+              تسجيل الدخول
+            </Link>
+          </p>
         </div>
       </div>
     </div>

@@ -258,15 +258,15 @@ const Profile = () => {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-primary bg-opacity-5 p-4 rounded-lg text-center">
                 <div className="text-2xl font-bold text-white mb-1">12</div>
-                <div className="text-gray-600 text-sm">إجمالي الدروس</div>
+                <div className="text-white text-sm">إجمالي الدروس</div>
               </div>
               <div className="bg-secondary bg-opacity-5 p-4 rounded-lg text-center">
                 <div className="text-2xl font-bold text-white mb-1">1</div>
-                <div className="text-gray-600 text-sm"> عدد الدروس التي تم الغائها </div>
+                <div className="text-white text-sm"> عدد الدروس التي تم الغائها </div>
               </div>
               <div className="bg-accent bg-opacity-5 p-4 rounded-lg text-center">
                 <div className="text-2xl font-bold text-white mb-1">1</div>
-                <div className="text-gray-600 text-sm"> عدد الدروس التي تمت </div>
+                <div className="text-white text-sm"> عدد الدروس التي تمت </div>
               </div>
             </div>
           </div>

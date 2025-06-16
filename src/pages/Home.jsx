@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FiBook, FiCalendar, FiMapPin, FiArrowLeft } from 'react-icons/fi';
 import { subjects } from '../data/mockData';
 
 const Home = () => {
+  const navigate = useNavigate()
+
   return (
     <div>
       <section className="gradient-primary text-white py-20">
@@ -48,7 +50,7 @@ const Home = () => {
                 معلمون معتمدون وذوو خبرة في جميع المواد الدراسية
               </p>
             </div>
-            
+
             <div className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
               <div className="w-16 h-16 bg-secondary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <FiCalendar className="w-8 h-8 text-white" />
@@ -58,7 +60,7 @@ const Home = () => {
                 احجز الدروس في الأوقات التي تناسبك
               </p>
             </div>
-            
+
             <div className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
               <div className="w-16 h-16 bg-accent bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <FiMapPin className="w-8 h-8 text-accent text-white" />
@@ -79,7 +81,12 @@ const Home = () => {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {subjects.map((subject) => (
-              <div
+              <Link
+                onClick={() => {
+                  navigate('/teachers')
+                  localStorage.setItem('filter', subject.key)
+                  window.scrollTo(0, 0);
+                }}
                 key={subject.key}
                 className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow text-center group cursor-pointer"
               >
@@ -87,7 +94,7 @@ const Home = () => {
                   {subject.icon}
                 </div>
                 <h3 className="font-semibold text-gray-800">{subject.name}</h3>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

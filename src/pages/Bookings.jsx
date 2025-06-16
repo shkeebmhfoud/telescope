@@ -65,7 +65,7 @@ const Bookings = () => {
     return (
       <div key={booking.id} className={`bg-white rounded-lg shadow-sm p-6 border-r-4 ${booking.status === 'upcoming' ? 'border-primary' :
         booking.status === 'completed' ? 'border-secondary' :
-          'border-gray-400'
+          'border-red-600'
         }`}>
         <div className="flex items-start justify-between">
           <div className="flex items-start space-x-4 space-x-reverse flex-1">
