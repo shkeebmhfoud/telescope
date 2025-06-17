@@ -1,3 +1,12 @@
+import physics from './images/physics.png'
+import science from './images/science.png'
+import maths from './images/maths.png'
+import chm from './images/chemistry.png'
+import geo from './images/geography.png'
+import hist from './images/history.png'
+import ar from './images/books.png'
+import en from './images/engllish.png'
+
 export const mockTeachers = [
   {
     id: 1,
@@ -120,14 +129,14 @@ export const availableDays = [
 ];
 
 export const subjects = [
-  { key: 'arabic', name: 'اللغة العربية', icon: '📚' },
-  { key: 'math', name: 'الرياضيات', icon: '🔢' },
-  { key: 'science', name: 'العلوم', icon: '🔬' },
-  { key: 'english', name: 'اللغة الإنجليزية', icon: '🇬🇧' },
-  { key: 'history', name: 'التاريخ', icon: '🏛️' },
-  { key: 'geography', name: 'الجغرافيا', icon: '🗺️' },
-  { key: 'art', name: 'التربية الفنية', icon: '🎨' },
-  { key: 'sports', name: 'التربية الرياضية', icon: '🏃' }
+  { key: 'arabic', name: 'اللغة العربية', icon: ar },
+  { key: 'math', name: 'الرياضيات', icon: maths },
+  { key: 'science', name: 'العلوم', icon: science },
+  { key: 'english', name: 'اللغة الإنجليزية', icon: en },
+  { key: 'history', name: 'التاريخ', icon:hist },
+  { key: 'geography', name: 'الجغرافيا', icon:geo },
+  { key: 'physics', name: 'الفيزياء', icon: physics },
+  { key: 'chemistry', name: 'الكيمياء', icon:chm }
 ];
 
 export const grades = [

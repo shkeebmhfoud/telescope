@@ -178,10 +178,10 @@
   clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
 }
 
-*{
+* {
   direction: rtl;
 }
 
-*::selection{
+*::selection {
   background-color: transparent;
 }

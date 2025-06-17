@@ -21,10 +21,10 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // Simulate form submission
     toast.success('تم إرسال رسالتك بنجاح! سنتواصل معك خلال 24 ساعة');
-    
+
     // Reset form
     setFormData({
       name: '',
@@ -39,12 +39,12 @@ const Contact = () => {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="bg-white rounded-lg shadow-sm p-8">
         <h1 className="text-3xl font-bold mb-8 text-gray-800">اتصل بنا</h1>
-        
+
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Information */}
           <div>
             <h2 className="text-xl font-semibold mb-6">معلومات التواصل</h2>
-            
+
             <div className="space-y-6">
               <div className="flex items-start space-x-4 space-x-reverse">
                 <div className="bg-primary bg-opacity-10 p-3 rounded-full">
@@ -52,11 +52,11 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-800 mb-1">الهاتف</h3>
-                  <p className="text-gray-600" style={{direction:'ltr'}}>+963 31 123 4567</p>
-                  <p className="text-gray-600" style={{direction:'ltr'}}>+963 944 567 890</p>
+                  <p className="text-gray-600" style={{ direction: 'ltr' }}>+963 31 123 4567</p>
+                  <p className="text-gray-600" style={{ direction: 'ltr' }}>+963 944 567 890</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start space-x-4 space-x-reverse">
                 <div className="bg-secondary bg-opacity-10 p-3 rounded-full">
                   <FiMail className="w-6 h-6 text-white" />
@@ -67,7 +67,7 @@ const Contact = () => {
                   <p className="text-gray-600">support@telescope-edu.sy</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start space-x-4 space-x-reverse">
                 <div className="bg-accent bg-opacity-10 p-3 rounded-full">
                   <FiMapPin className="w-6 h-6 text-white" />
@@ -80,7 +80,7 @@ const Contact = () => {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start space-x-4 space-x-reverse">
                 <div className="bg-gray-100 p-3 rounded-full">
                   <FiClock className="w-6 h-6 text-gray-600" />
@@ -94,33 +94,8 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-
-            {/* FAQ Section */}
-            <div className="mt-8">
-              <h3 className="text-lg font-semibold mb-4">الأسئلة الشائعة</h3>
-              <div className="space-y-3">
-                <details className="bg-gray-50 p-4 rounded-lg">
-                  <summary className="font-semibold cursor-pointer">كيف يمكنني حجز درس؟</summary>
-                  <p className="mt-2 text-gray-600 text-sm">
-                    يمكنك تصفح المعلمين المتاحين على الخريطة، اختيار المعلم المناسب، ثم تحديد الوقت والتاريخ المطلوب.
-                  </p>
-                </details>
-                <details className="bg-gray-50 p-4 rounded-lg">
-                  <summary className="font-semibold cursor-pointer">ما هي طرق الدفع المتاحة؟</summary>
-                  <p className="mt-2 text-gray-600 text-sm">
-                    نقبل الدفع نقداً عند الحضور أو عبر التحويل البنكي المسبق.
-                  </p>
-                </details>
-                <details className="bg-gray-50 p-4 rounded-lg">
-                  <summary className="font-semibold cursor-pointer">هل يمكنني إلغاء الحجز؟</summary>
-                  <p className="mt-2 text-gray-600 text-sm">
-                    نعم، يمكنك إلغاء الحجز قبل 24 ساعة من موعد الدرس بدون رسوم إضافية.
-                  </p>
-                </details>
-              </div>
-            </div>
           </div>
-          
+
           {/* Contact Form */}
           <div>
             <h2 className="text-xl font-semibold mb-6">أرسل لنا رسالة</h2>
@@ -138,7 +113,7 @@ const Contact = () => {
                   required
                 />
               </div>
-              
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   البريد الإلكتروني *
@@ -152,7 +127,7 @@ const Contact = () => {
                   required
                 />
               </div>
-              
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   رقم الهاتف
@@ -165,7 +140,7 @@ const Contact = () => {
                   className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
-              
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   الموضوع *
@@ -186,7 +161,7 @@ const Contact = () => {
                   <option value="other">أخرى</option>
                 </select>
               </div>
-              
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   الرسالة *
@@ -201,7 +176,7 @@ const Contact = () => {
                   required
                 />
               </div>
-              
+
               <button
                 type="submit"
                 className="w-full bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold flex items-center justify-center space-x-2 space-x-reverse"

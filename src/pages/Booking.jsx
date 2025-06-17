@@ -133,7 +133,7 @@ const Booking = () => {
         <h1 className="text-3xl font-bold mb-8 text-gray-800">حجز درس خصوصي</h1>
 
         {/* Teacher Info */}
-        <div className="border-b pb-8 mb-8">
+        <div className="d border-b pb-8 mb-8 border py-3 px-4 rounded shadow-lg">
           <div className="flex items-start space-x-6 space-x-reverse">
             <img
               src={teacher.image}
@@ -183,7 +183,7 @@ const Booking = () => {
 
         {/* Booking Form */}
         <form onSubmit={handleBooking}>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 border rounded shadow-lg py-4 px-5">
             <div>
               <h3 className="text-xl font-semibold mb-4 flex items-center space-x-2 space-x-reverse">
                 <FiCalendar className="w-5 h-5" />
@@ -235,7 +235,7 @@ const Booking = () => {
             </div>
           </div>
 
-          <div className="mt-8">
+          <div className="mt-8 border shadow-lg rounded py-3 px-2">
             <label className="block text-sm font-medium text-gray-700 mb-2">
               ملاحظات إضافية
             </label>

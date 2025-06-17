@@ -1,13 +1,23 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { FiBook, FiCalendar, FiMapPin, FiArrowLeft } from 'react-icons/fi';
 import { subjects } from '../data/mockData';
+import header_image_1 from '../data/images/header_image_1.jpg'
+import header_image_3 from '../data/images/header_image_3.png'
+import middle_image from '../data/images/middle_image.jpg'
 
 const Home = () => {
   const navigate = useNavigate()
 
   return (
     <div>
-      <section className="gradient-primary text-white py-20">
+      <section style={
+        {
+          backgroundImage: `url("${header_image_1}")`
+          , backgroundSize: '100% 100%'
+          , backgroundRepeat: 'no-repeat'
+          , backgroundAttachment: 'fixed'
+        }
+      } className="home-header text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -19,14 +29,14 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/teachers"
-                className="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center space-x-2 space-x-reverse"
+                className="border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-black transition-colors inline-flex items-center justify-center space-x-2 space-x-reverse"
               >
                 <span>ابحث عن معلم الآن</span>
                 <FiArrowLeft className="w-5 h-5" />
               </Link>
               <Link
                 to="/register"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors inline-flex items-center justify-center"
+                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-black transition-colors inline-flex items-center justify-center"
               >
                 إنشاء حساب جديد
               </Link>
@@ -74,9 +84,19 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-100">
+      <section style={
+        {
+          backgroundImage: `url("${middle_image}")`,
+          backgroundSize: '100% 100%',
+          backgroundAttachment: 'fixed'
+        }
+      } className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
+          <h2 style={
+            {
+              textShadow:'0 0 10px orange'
+            }
+          } className="text-4xl font-bold text-center mb-12 text-accent">
             المواد الدراسية المتاحة
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -88,10 +108,10 @@ const Home = () => {
                   window.scrollTo(0, 0);
                 }}
                 key={subject.key}
-                className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow text-center group cursor-pointer"
+                className="flex items-center flex-col bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow text-center group cursor-pointer"
               >
                 <div className="text-3xl mb-3 group-hover:scale-110 transition-transform">
-                  {subject.icon}
+                  <img src={subject.icon} className='w-[60px]' alt="" />
                 </div>
                 <h3 className="font-semibold text-gray-800">{subject.name}</h3>
               </Link>
@@ -123,7 +143,11 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-20 gradient-primary text-white">
+      <section style={{
+        backgroundImage: `url("${header_image_3}")`
+        , backgroundSize: '100% 100%'
+        , backgroundAttachment: 'fixed'
+      }} className="py-20 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-6">
             ابدأ رحلتك التعليمية اليوم

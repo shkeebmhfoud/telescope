@@ -114,7 +114,7 @@ const Teachers = () => {
       </div>
 
       <div className="bg-white p-6 rounded-lg shadow-sm mb-8">
-        <h2 className="text-xl font-semibold mb-4 flex items-center space-x-2 space-x-reverse">
+        <h2 className="text+-xl font-semibold mb-4 flex items-center space-x-2 space-x-reverse">
           <span>🗺️</span>
           <span>خريطة المعلمين</span>
         </h2>
