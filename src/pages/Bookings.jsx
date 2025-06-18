@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FiCalendar, FiClock, FiDollarSign, FiEdit, FiX, FiRepeat } from 'react-icons/fi';
+import { FiCalendar, FiClock, FiEdit, FiX, FiRepeat } from 'react-icons/fi';
 import { mockBookings, timeSlots } from '../data/mockData';
 import { toast } from 'react-toastify';
 
@@ -90,7 +90,6 @@ const Bookings = () => {
                   <span>{formatTime(booking.time)}</span>
                 </div>
                 <div className="flex items-center space-x-2 space-x-reverse">
-                  <FiDollarSign className="w-4 h-4" />
                   <span>{booking.price.toLocaleString()} ل.س</span>
                 </div>
               </div>
@@ -218,25 +217,29 @@ const Bookings = () => {
       {/* Summary Stats */}
       {activeTab === 'upcoming' && getBookingsByStatus('upcoming').length > 0 && (
         <div className="mt-8 bg-primary bg-opacity-5 p-6 rounded-lg">
-          <h3 className="text-lg font-semibold mb-4">ملخص الحجوزات القادمة</h3>
+          <h3 className="text-lg font-semibold mb-4 text-white text-center">ملخص الحجوزات القادمة</h3>
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="text-center">
+            <div style={{
+              borderLeft: '2px solid white'
+            }} className="text-center" >
               <div className="text-2xl font-bold text-white">
                 {getBookingsByStatus('upcoming').length}
               </div>
-              <div className="text-gray-600 text-sm">درس قادم</div>
+              <div className="text-white text-sm">درس قادم</div>
             </div>
-            <div className="text-center">
+            <div style={{
+              borderLeft: '2px solid white'
+            }} className="text-center ">
               <div className="text-2xl font-bold text-white">
                 {getBookingsByStatus('upcoming').reduce((sum, booking) => sum + booking.price, 0).toLocaleString()}
               </div>
-              <div className="text-gray-600 text-sm">ل.س - إجمالي التكلفة</div>
+              <div className="text-white text-sm">ل.س - إجمالي التكلفة</div>
             </div>
-            <div className="text-center">
+            <div className="text-center ">
               <div className="text-2xl font-bold text-white">
                 {new Set(getBookingsByStatus('upcoming').map(b => b.subject)).size}
               </div>
-              <div className="text-gray-600 text-sm">مادة مختلفة</div>
+              <div className="text-white text-sm">مادة مختلفة</div>
             </div>
           </div>
         </div>
