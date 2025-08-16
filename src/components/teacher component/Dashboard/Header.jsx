@@ -1,5 +1,7 @@
-import { FiBookOpen, FiChevronDown, FiEdit3, FiHelpCircle, FiHome, FiLogOut, FiUser } from 'react-icons/fi'
+import { FiChevronDown, FiEdit3, FiHelpCircle, FiHome, FiLogOut, FiUser } from 'react-icons/fi'
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import api from '../../../lib/api'
 
 const Header = (
     {
@@ -10,9 +12,37 @@ const Header = (
 ) => {
     const navigate = useNavigate()
 
+    const handleLogout = async () => {
+        const { teacherToken } = localStorage;
+
+        try {
+            const logoutRequest = await (await api.post(
+                "/api/teacher/logout"
+                , {}
+                ,
+                {
+                    headers: {
+                        authorization: "Bearer " + teacherToken
+                    }
+                }
+            )).data;
+
+            console.log(logoutRequest)
+
+            toast.success("تم تسجيل الخروج بنجاح");
+
+            localStorage.removeItem("teacherToken");
+
+            window.location.href = "/login";
+        } catch (e) {
+            toast.error(e.message);
+            console.log(e);
+        }
+    }
+
     const reschedualLessons = () => {
         setIsProfileMenuOpen(false)
-        localStorage.setItem('activeTab','schedule');
+        localStorage.setItem('activeTab', 'schedule');
         navigate('/teacher/profile')
     }
 
@@ -25,10 +55,6 @@ const Header = (
                             <span className="text-2xl">🔭</span>
                             <span className="text-xl font-bold text-emerald-600">تلسكوب</span>
                         </Link>
-                        <div className="flex items-center space-x-2 space-x-reverse">
-                            <FiBookOpen className="w-5 h-5 text-gray-500" />
-                            <span className="text-gray-700 font-medium">بوابة المعلمين</span>
-                        </div>
                     </div>
 
                     <div className="flex items-center space-x-4 space-x-reverse">
@@ -104,7 +130,7 @@ const Header = (
                                         <Link
                                             to="/teacher/login"
                                             className="flex items-center space-x-3 space-x-reverse px-4 py-3 text-sm text-red-600 hover:bg-red-50 transition-colors"
-                                            onClick={() => setIsProfileMenuOpen(false)}
+                                            onClick={handleLogout}
                                         >
                                             <FiLogOut className="w-4 h-4 text-red-500" />
                                             <span>تسجيل الخروج</span>

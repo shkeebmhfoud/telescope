@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FiMail, FiLock, FiEye, FiEyeOff, FiArrowRight, FiStar } from 'react-icons/fi';
 import { toast } from 'react-toastify';
+import api from '../../lib/api';
 
 const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    rememberMe: false
   });
+
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -25,12 +26,46 @@ const Login = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate login process
-    setTimeout(() => {
-      toast.success('تم تسجيل الدخول بنجاح!');
+    try {
+
+      const responseData = await (await api.post("/api/user/login", formData)).data;
+
+      if (!responseData) {
+        toast.error("حدث خطا ما");
+        setIsLoading(false);
+        setFormData(
+          {
+            email: '',
+            password: '',
+          }
+        )
+        return;
+      }
+
+      if (responseData.status === 'success') {
+        toast.success("تم تسجيل دخول بنجاح");
+        if (responseData.userType.userType === 'student') {
+          localStorage.setItem("userToken", responseData.token);
+          navigate("/");
+        } else if (responseData.userType.userType === 'teacher') {
+          localStorage.setItem("teacherToken", responseData.token);
+          navigate('/teacher/dashboard');
+        } else {
+          localStorage.setItem("adminToken", responseData.token);
+          navigate("/admin/dashboard");
+        }
+      } else {
+        toast.error("البريد الالكتروني او كلمة مرور خاطئة");
+        setIsLoading(false);
+      }
+    } catch (e) {
       setIsLoading(false);
-      navigate('/');
-    }, 1000);
+      setFormData({
+        email: '',
+        password: ''
+      })
+      toast.error(e.message);
+    }
   };
 
   return (
@@ -144,21 +179,9 @@ const Login = () => {
               </div>
 
               <div className="flex items-center justify-between pt-2">
-                <div className="flex items-center">
-                  <input
-                    type="checkbox"
-                    name="rememberMe"
-                    checked={formData.rememberMe}
-                    onChange={handleInputChange}
-                    className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded transition-colors"
-                  />
-                  <label className="mr-3 block text-sm text-gray-700 font-medium">
-                    تذكرني
-                  </label>
-                </div>
                 <div className="text-sm">
                   <Link
-                    to="/forgot-password"
+                    to="/varify-email"
                     className="font-semibold text-primary hover:text-blue-700 transition-colors hover:underline"
                   >
                     نسيت كلمة المرور؟
@@ -171,8 +194,8 @@ const Login = () => {
                   type="submit"
                   disabled={isLoading}
                   className={`w-full relative overflow-hidden py-4 px-6 rounded-xl font-bold text-white transition-all duration-300 transform hover:scale-[1.02] focus:scale-[1.02] shadow-lg hover:shadow-xl ${isLoading
-                      ? 'bg-gray-400 cursor-not-allowed'
-                      : 'bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary'
+                    ? 'bg-gray-400 cursor-not-allowed'
+                    : 'bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary'
                     }`}
                 >
                   <div className="flex items-center justify-center space-x-3 space-x-reverse">
@@ -193,14 +216,29 @@ const Login = () => {
             </form>
 
             {/* Sign Up Link */}
-            <div className="mt-8 text-center">
-              <p className="text-gray-600">
+            <div className="mt-8 text-center flex items-center flex-col gap-y-3">
+              <p className="text-gray-600 text-sm">
                 ليس لديك حساب؟{' '}
                 <Link
-                  to="/register"
+                  onClick={() => {
+                    localStorage.setItem('role', 'student');
+                    navigate('/register');
+                  }}
                   className="font-bold text-primary hover:text-blue-700 transition-colors hover:underline"
                 >
                   إنشاء حساب جديد
+                </Link>
+              </p>
+              <p className="text-gray-600 text-[0.7rem]">
+                انت معلم ؟{' '}
+                <Link
+                  onClick={() => {
+                    localStorage.setItem('role', 'teacher');
+                    navigate('/teacher/register');
+                  }}
+                  className="font-bold text-primary hover:text-blue-700 transition-colors hover:underline"
+                >
+                  قم بانشاء حساب جديد خاص بك
                 </Link>
               </p>
             </div>

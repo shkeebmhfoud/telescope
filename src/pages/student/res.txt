@@ -1,0 +1,125 @@
+shkeeb mahfoud, [2025-08-16 11:35 PM]
+https://freegeoip.tech/
+
+shkeeb mahfoud, [2025-08-16 11:37 PM]
+DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get IP Address</title>
+</head>
+<body>
+    <button onclick="getIP()">Get IP Address</button>
+    <p id="ip"></p>
+
+    <script>
+        async function getIP() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                document.getElementById('ip').innerText = Your IP Address: ${data.ip};
+            } catch (error) {
+                console.error('Error fetching IP address:', error);
+            }
+        }
+    </script>
+</body>
+</html>
+  <select
+                  name="category"
+                  value={contactForm.category}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  required
+                >
+                  <option value="">اختر الفئة</option>
+                  <option value="account">مشاكل الحساب</option>
+                  <option value="bookings">الحجوزات والدروس</option>
+                  <option value="payments">المدفوعات</option>
+                  <option value="technical">مشاكل تقنية</option>
+                  <option value="other">أخرى</option>
+                </select>
+
+login {
+    "status": "success",
+    "userType": {
+        "userType": "student"
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNAZ21haWwuY29tIiwiaWF0IjoxNzUyODQwNTAxLCJleHAiOjE3NjA2MTY1MDF9.tBgBBxs5ocbQR4qI78KHscMNJlmtbbVdONzYNqxAtQo"
+}
+
+{
+    "status": "fail",
+    "error": {
+        "statusCode": 401,
+        "status": "fail",
+        "isOperational": true
+    },
+    "message": "Incorrect email or password",
+    "stack": "Error: Incorrect email or password\n    at /opt/render/project/src/controllers/userController.js:128:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+
+{
+    "status": "success",
+    "data": {
+        "address": {
+            "city": "حمص",
+            "street": "ggg",
+            "region": "الوعر"
+        },
+        "location": {
+            "coordinates": [],
+            "type": "Point"
+        },
+        "_id": "687a9942c10884076615ae6a",
+        "name": "shkeeb",
+        "email": "shakeebma2002@gmail.com",
+        "image": "",
+        "Class": 5,
+        "gender": "male",
+        "phone": "+963 944 123 456",
+        "birthDate": "2025-07-04T00:00:00.000Z",
+        "role": "student",
+        "createdAt": "2025-07-18T18:58:10.279Z",
+        "updatedAt": "2025-07-18T18:58:10.279Z",
+        "__v": 0
+    }
+}
+
+
+{
+    "success": true,
+    "data": [
+        {
+            "_id": "6872e84bf3f09de38e2f463f",
+            "userId": "6870ef63c9d8280a03748dfc",
+            "teacherId": "6870ecd8329546b1f42f8141",
+            "slotDate": "2025-07-15T12:00:00.000Z",
+            "slotTime": "12:00",
+            "nots": "",
+            "price": 300,
+            "cancelled": false,
+            "isCompleted": false,
+            "subject": "الفيزياء",
+            "createdAt": "2025-07-12T22:57:15.185Z",
+            "updatedAt": "2025-07-12T22:57:15.185Z",
+            "__v": 0
+        },
+        {
+            "_id": "6872e84bf3f09de38e2f4643",
+            "userId": "6870ef63c9d8280a03748dfc",
+            "teacherId": "6870ecd8329546b1f42f8150",
+            "slotDate": "2025-07-17T13:00:00.000Z",
+            "slotTime": "13:00",
+            "nots": "",
+            "price": 190,
+            "cancelled": false,
+            "isCompleted": false,
+            "subject": "اللغة الفرنسية",
+            "createdAt": "2025-07-12T22:57:15.186Z",
+            "updatedAt": "2025-07-12T22:57:15.186Z",
+            "__v": 0
+        }
+    ]
+}

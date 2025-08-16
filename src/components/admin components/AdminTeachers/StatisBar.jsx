@@ -8,7 +8,7 @@ const StatisBar = (
 ) => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="bg-white rounded-lg shadow-sm p-6 border-r-blue-700 border-r-4">
                 <div className="flex items-center">
                     <div className="p-3 bg-blue-100 rounded-lg">
                         <FiUsers className="w-6 h-6 text-blue-600" />
@@ -16,11 +16,12 @@ const StatisBar = (
                     <div className="mr-4">
                         <p className="text-sm font-medium text-gray-600">إجمالي المعلمين</p>
                         <p className="text-2xl font-bold text-blue-600">{statis.teachersNum}</p>
+                        <p className="text-xs text-gray-500">معلم</p>
                     </div>
                 </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="bg-white rounded-lg shadow-sm p-6 border-r-green-700 border-r-4">
                 <div className="flex items-center">
                     <div className="p-3 bg-green-100 rounded-lg">
                         <FiBookOpen className="w-6 h-6 text-green-600" />
@@ -28,11 +29,12 @@ const StatisBar = (
                     <div className="mr-4">
                         <p className="text-sm font-medium text-gray-600">إجمالي الدروس</p>
                         <p className="text-2xl font-bold text-green-600">{statis.totalLessons}</p>
+                        <p className="text-xs text-gray-500">درس</p>
                     </div>
                 </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="bg-white rounded-lg shadow-sm p-6 border-r-orange-700 border-r-4">
                 <div className="flex items-center">
                     <div className="p-3 bg-orange-100 rounded-lg">
                         <FiDollarSign className="w-6 h-6 text-orange-600" />
